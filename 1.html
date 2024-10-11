@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <base href="/"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Labs environment for data science with Jupyter, R, and Scala.">
+        <title>Skills Network Labs</title>
+        <script src="/static/react-dist/iframeComms.js"></script>
+        <script>
+            !function() {
+                const e = ['debug', 'destroy', 'do', 'help', 'identify', 'is', 'off', 'on', 'ready', 'render', 'reset', 'safe', 'set'];
+                if (window.noticeable)
+                    console.warn('Noticeable SDK code snippet loaded more than once');
+                else {
+                    const n = function(e) {
+                        return function() {
+                            const n = Array.prototype.slice.call(arguments);
+                            return n.unshift(e),
+                            t.push(n),
+                            t
+                        }
+                    };
+                    var t = window.noticeable = window.noticeable || [];
+                    !function() {
+                        for (let o = 0; o < e.length; o++) {
+                            const r = e[o];
+                            t[r] = n(r)
+                        }
+                    }(),
+                    function() {
+                        const e = document.createElement('script');
+                        e.async = !0,
+                        e.src = 'https://sdk.noticeable.io/l.js';
+                        const n = document.head;
+                        n.insertBefore(e, n.firstChild)
+                    }()
+                }
+            }();
+        </script>
+        <script type="module" crossorigin src="/static/react-dist/index-3c504a30.js"></script>
+        <link rel="stylesheet" href="/static/react-dist/index-3500669f.css">
+    </head>
+    <body style="overflow: hidden;">
+        <div id="root"></div>
+        <script>
+            // access the variables passed from the flask backend and put them to the window object
+            window.data = {
+                "author_ide_url": "https://author-ide.skills.network",
+                "default_heartbeat_time": 1800,
+                "iframe_src": "https://theia-1-labs-prod-misc-tools-us-east-0.labs.cognitiveclass.ai/oauth_login?next=%2Fhub%2Fspawn%3F",
+                "inactive_logout_time": 60,
+                "instruction_placement": "left",
+                "instruction_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZXh0X2lkIjoib25kZW1hbmR-TUd5WjNSNEhFZXVXNEE3cThJUTBpUSIsImNvbnRleHRfbGFiZWwiOiJpbnRyb2R1Y3Rpb24tdG8td2ViLWRldmVsb3BtZW50LXdpdGgtaHRtbC1jc3MtamF2YWNyaXB0IiwiY291cnNlX3RpdGxlIjoiSW50cm9kdWN0aW9uIHRvIFdlYiBEZXZlbG9wbWVudCB3aXRoIEhUTUwsIENTUywgSmF2YVNjcmlwdCIsImVtYWlsIjoia2Q2MDE1MjdAZ21haWwuY29tIiwiZnVsbF9uYW1lIjoiS29tYWwgRGhpbWFuIiwibWRfaW5zdHJ1Y3Rpb25zX3VybCI6Imh0dHBzOi8vY2YtY291cnNlcy1kYXRhLnN0YXRpYy5sYWJzLnNraWxscy5uZXR3b3JrL0lCTURldmVsb3BlclNraWxsc05ldHdvcmstQ0QwMTAxRU4tU2tpbGxzTmV0d29yay9sYWJzL1Byb2plY3QvRmluYWxfUHJvamVjdF9WMy9maW5hbC1wcm9qZWN0X2luc3RydWN0aW9uc192My5tZCIsInJlc291cmNlX2xpbmtfaWQiOiJvbmRlbWFuZH5NR3laM1I0SEVldVc0QTdxOElRMGlRIX5RU3hIaiIsInRvb2xfY29uc3VtZXJfaW5mb19wcm9kdWN0X2ZhbWlseV9jb2RlIjoiaW1zIiwidG9vbF9jb25zdW1lcl9pbnN0YW5jZV9kZXNjcmlwdGlvbiI6IkNvdXJzZXJhIiwidXNlcm5hbWUiOiJrZDYwMTUyNyIsImFkbWluIjpmYWxzZSwiaWF0IjoxNzI4NTgzOTQ1LCJleHAiOjE3Mjg2NzAzNDV9.ivosUIAp2ZjVdz8E3E6U0ut2oQItSbdDwW4ujnuZYbw",
+                "instruction_width": "50",
+                "lab_environment": "published",
+                "messaging_domain": "messaging.skills.network",
+                "mode": "learn",
+                "tai_enabled": true,
+                "tai_feedback_nats_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvcmdhbml6YXRpb24iOiJzbiIsInByb2dyYW0iOiJsYWJzIiwicHJvamVjdCI6ImNsb3VkLWlkZSIsIm9wdGlvbnMiOnsicGVybWl0dGVkQWN0aW9ucyI6WyJjaGF0LmZlZWRiYWNrLnBvc2l0aXZlIiwiY2hhdC5mZWVkYmFjay5uZWdhdGl2ZSJdLCJwZXJtaXR0ZWREYXRhIjpbInRhaUNoYXRJZCIsImFpTWVzc2FnZUNvbnRlbnQiLCJ1c2VyTWVzc2FnZUNvbnRlbnQiLCJmZWVkYmFja0NvbnRlbnQiXSwicGVybWl0dGVkVHlwZSI6InVzZXIiLCJwZXJtaXR0ZWRVc2VybmFtZSI6ImtkNjAxNTI3In0sImlhdCI6MTcyODU4Mzk3NH0.XHKyKA_PTJABa9ODHAqtTJiiu1jvFiGFgZrsDBVkfeA",
+                "tai_watsonx_ai_enabled": false,
+                "username": "kd601527",
+                "websocket_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVzSW4iOiIyNGgiLCJ0b29sIjoiY2xvdWQtaWRlIiwidXNlcm5hbWUiOiJrZDYwMTUyNyIsImFkbWluIjpmYWxzZSwiaWF0IjoxNzI4NTgzOTQ1LCJleHAiOjE3Mjg2NzAzNDV9.yOv5tiYLo6-TN74Y4ahAX10We1aKE6y4oae9LDIpGM0",
+                "websocket_url": "https://websocket-service.skills.network"
+            };
+            // ignore error, just jinja syntax
+        </script>
+        <script>
+            window.addEventListener('load', function() {
+                var interval = window.data.default_heartbeat_time * 1000;
+                setInterval(function() {
+                    console.log("Posting one heartbeat.");
+                    var heartbeatRequest = new XMLHttpRequest();
+                    var url = '/heartbeat';
+                    // assume url starts with a slash
+                    // Edge doesn't like posting to just /heartbeat
+                    // Edge also might not like window.location.origin
+                    if (!(window && window.location && window.location.host)) {
+                        // We might be running after someone did a File > Save As
+                        // In which case we might as well give up
+                        return false;
+                    }
+                    url = (window.location.protocol + '//' + window.location.host + url);
+                    heartbeatRequest.open('POST', url, true);
+                    // request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+                    heartbeatRequest.send(null);
+
+                    // // refresh Google Analytics
+                    // if (typeof ga !== 'undefined') {
+                    //     ga('send', 'event', 'Heartbeat', 'heartbeat');
+                    // }
+                }, interval);
+            });
+        </script>
+    </body>
+</html>
